@@ -17,8 +17,9 @@ class Student{
         console.log(this.calculatePercentage());
         console.log(this.name1);
     }
-    
+   
 }
 
 const stud = new Student(101,'Rahul',78);
+
 stud.display();
