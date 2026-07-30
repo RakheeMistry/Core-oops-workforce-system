@@ -12,5 +12,7 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
+
 var stud = new Student(101, 'Rahul', 78);
+
 stud.display();
