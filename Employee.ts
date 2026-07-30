@@ -14,6 +14,7 @@ class Employee {
         console.log(this.name1);
         console.log(this.salary1);
     }
+    
 }
 
 const emp = new Employee(1, "Rakhee", 50000);
