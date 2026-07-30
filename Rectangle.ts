@@ -17,5 +17,6 @@ class Rectangle{
 }
 
 let rect = new Rectangle(5,7);
+
 console.log("Area of Rectangle is",rect.area());
 console.log("Perimeter of Rectangle is",rect.perimeter());
