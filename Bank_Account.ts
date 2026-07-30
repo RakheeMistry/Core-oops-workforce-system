@@ -23,4 +23,5 @@ class Bank_Account{
 }
 
 const ba = new Bank_Account(2000,500,5000);
+
 console.log(ba.Deposit());
