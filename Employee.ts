@@ -4,11 +4,9 @@ class Employee {
     salary1: number;
 
     constructor(id: number, name: string, salary: number) {
-
         this.id1 = id;
         this.name1 = name;
         this.salary1 = salary;
-
     }
 
     display() {
