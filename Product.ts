@@ -13,7 +13,6 @@ class Product{
         // console.log(this.price1*this.quantity1);
         return this.price1*this.quantity1;
     }
-
 }
 
 let prod = new Product(101,1000,2);
