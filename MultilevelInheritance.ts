@@ -1,4 +1,4 @@
-// Multilevel Inheritance Examplein TypeScript
+// Multilevel Inheritance Example in TypeScript
 class GrandParent {
    sitting(){
     console.log("GrandParent is sitting");
@@ -23,7 +23,7 @@ child.sitting();
 child.walking();
 child.running();
 
-// Multilevel Inheritance with Constructors
+// Multilevel Inheritance example1 with Constructors
 class Person1{
    constructor(public name:string){
       console.log("Person constructor");
@@ -56,3 +56,45 @@ class Manager extends Employee1{
 const manager = new Manager("Bob", "TechCorp", "IT");
 manager.displayManagerInfo();
 
+// Multilevel Inheritance example2 with constructor 
+class Vehicle1 {
+  constructor(public brand: string) {
+    console.log("Vehicle Constructor");
+  }
+
+  start() {
+    console.log(`${this.brand} started`);
+  }
+}
+
+class Car1 extends Vehicle1 {
+  constructor(brand: string, public model: string) {
+    super(brand);
+    console.log("Car Constructor");
+  }
+
+  drive() {
+    console.log(`${this.model} is driving`);
+  }
+}
+
+class ElectricCar extends Car1 {
+  constructor(
+    brand: string,
+    model: string,
+    public battery: number
+  ) {
+    super(brand, model);
+    console.log("ElectricCar Constructor");
+  }
+
+  charge() {
+    console.log(`Battery: ${this.battery}%`);
+  }
+}
+
+const tesla = new ElectricCar("Tesla", "Model Y", 95);
+
+tesla.start();
+tesla.drive();
+tesla.charge();
