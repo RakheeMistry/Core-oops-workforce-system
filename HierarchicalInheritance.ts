@@ -52,10 +52,12 @@ class Student extends Person{
     }
 }
 
+// Employee Object
 const emp = new Employee("Alice", 30, "TechCorp");
 emp.displayPerson();
 emp.displayEmployee();
 
+// Student Object
 const stu = new Student("Bob", 20, "XYZ University");
 stu.displayPerson();
 stu.displayStudent();
