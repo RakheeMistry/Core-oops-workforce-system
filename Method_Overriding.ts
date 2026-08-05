@@ -28,3 +28,24 @@ class Manager extends Employee{
 
 const mgr = new Manager();
 console.log(mgr.getSalary());
+
+// Method Overriding with Abstract Classes in TypeScript
+abstract class PaymentProcessor{
+    abstract processPayment(amount: number): void;
+    generateReceipt(amount: number): string{
+        return `Receipt generated for amount: ${amount}`;
+    }
+}
+class StripeProcessor extends PaymentProcessor{
+    processPayment(amount: number): void{
+        console.log(`Processing payment of ${amount} through Stripe`);
+    }
+    override generateReceipt(amount: number): string{
+        const baseReceipt = super.generateReceipt(amount);
+        return `${baseReceipt} - Processed by Stripe`;
+    }
+}
+
+const stripe = new StripeProcessor();
+stripe.processPayment(100);
+console.log(stripe.generateReceipt(100));
