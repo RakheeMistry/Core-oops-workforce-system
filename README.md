@@ -7,13 +7,13 @@ Type 2 : Excecution step for TypeScript file (without creation of separate JavaS
 --------------------------------------------------------------------------------------------
 npx ts-node <file-name.ts>
 
-
 ------------------------------------------------------------------------------------------------
 Note: npx is used because the TypeScript is installed locally for the particular project folder
 ------------------------------------------------------------------------------------------------
 
+***************************************************************************************************
 
-* Encapsulation : Hard Private Fields (#field) vs TypeScript private
+Encapsulation : Hard Private Fields (#field) vs TypeScript private
 --------------------------------------------------------------------------------------------------
 TypeScript offers two ways to make fields private:
 
