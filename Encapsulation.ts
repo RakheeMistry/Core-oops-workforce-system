@@ -51,7 +51,7 @@ const user = new User();
 console.log(user.getSecret()); // Accessing JS private field through a method
 
 // Error: Property 'tsPrivate' is private and only accessible within class 'User'. TS Private: Throws a TypeScript compiler error, but still exists at runtime.
-console.log(user.tsPrivate); 
+//console.log(user.tsPrivate); 
 
 // Error: Property '#jsPrivate' is a private field and only accessible within class 'User'. Hard Private: Causes a JavaScript Runtime SyntaxError if accessed directly
 //console.log(user.#jsPrivate);
