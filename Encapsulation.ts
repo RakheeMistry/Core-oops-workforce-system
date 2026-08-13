@@ -55,3 +55,31 @@ console.log(user.getSecret()); // Accessing JS private field through a method
 
 // Error: Property '#jsPrivate' is a private field and only accessible within class 'User'. Hard Private: Causes a JavaScript Runtime SyntaxError if accessed directly
 //console.log(user.#jsPrivate);
+
+// Encapsulation with Getters and Setters
+class Temperature{
+    private _celsius: number = 0;
+
+    // Getter
+    get celsius(): number{
+        return this._celsius;
+    }
+
+    // Setter with validation logic
+    set celsius(value: number){
+        if(value < -273.15){
+            throw new Error("Temperature below absolute zero is impossible!");
+        }
+        this._celsius = value;
+    }
+
+    // Computed property
+    get fahrenheit(): number {
+        return (this._celsius * 9) / 5 + 32;
+    }
+}
+
+const temp = new Temperature();
+temp.celsius = 25; // Calls setter
+console.log(temp.fahrenheit); // Calls getter -> 77
+temp.celsius = -300; // Throws Error!
