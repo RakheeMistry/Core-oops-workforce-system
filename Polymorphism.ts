@@ -27,3 +27,36 @@ a2.makeSound();
 // * const a1: Animal = new Dog(); *
 // The reference type is Animal, but the actual object is Dog.
 // When makeSound() is called, TypeScript/JavaScript executes the method of the actual object.
+
+
+// Real-world runtime polymorphism example 
+
+abstract class LoginService {
+    abstract login(): void;
+}
+
+class GoogleLogin extends LoginService{
+    login(): void{
+        console.log("Login with Google");
+    }
+}
+
+class FacebookLogin extends LoginService{
+    login(): void {
+        console.log("Login with Facebook");
+    }
+}
+
+class GithubLogin extends LoginService{
+    login(): void{
+        console.log("Login with Github");
+    }
+}
+
+function authenticate(service: LoginService){
+    service.login();
+}
+
+authenticate(new GoogleLogin());
+authenticate(new FacebookLogin());
+authenticate(new GithubLogin());
