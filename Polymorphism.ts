@@ -1,27 +1,27 @@
-// Runtime Polymorphism
-class Animal{
-    makeSound(): void{
-        console.log("Animal makes a sound");
-    }
-}
+// Method Overriding(Runtime Polymorphism)
+// class Animal{
+//     makeSound(): void{
+//         console.log("Animal makes a sound");
+//     }
+// }
 
-class Dog extends Animal{
-    makeSound(): void {
-        console.log("Dog says: Bark");
-    }
-}
+// class Dog extends Animal{
+//     makeSound(): void {
+//         console.log("Dog says: Bark");
+//     }
+// }
 
-class Cat extends Animal{
-    makeSound(): void {
-        console.log("Cat says: Meow");
-    }
-}
+// class Cat extends Animal{
+//     makeSound(): void {
+//         console.log("Cat says: Meow");
+//     }
+// }
 
-const a1: Animal = new Dog();
-const a2: Animal = new Cat();
+// const a1: Animal = new Dog();
+// const a2: Animal = new Cat();
 
-a1.makeSound();
-a2.makeSound();
+// a1.makeSound();
+// a2.makeSound();
 
 // Notice this line:
 // * const a1: Animal = new Dog(); *
@@ -31,32 +31,63 @@ a2.makeSound();
 
 // Real-world runtime polymorphism example 
 
-abstract class LoginService {
-    abstract login(): void;
+// abstract class LoginService {
+//     abstract login(): void;
+// }
+
+// class GoogleLogin extends LoginService{
+//     login(): void{
+//         console.log("Login with Google");
+//     }
+// }
+
+// class FacebookLogin extends LoginService{
+//     login(): void {
+//         console.log("Login with Facebook");
+//     }
+// }
+
+// class GithubLogin extends LoginService{
+//     login(): void{
+//         console.log("Login with Github");
+//     }
+// }
+
+// function authenticate(service: LoginService){
+//     service.login();
+// }
+
+// authenticate(new GoogleLogin());
+// authenticate(new FacebookLogin());
+// authenticate(new GithubLogin());
+
+// Method Overloading(Compile-time Polymorphism)
+abstract class Logger{
+    abstract log(message: string): void;
 }
 
-class GoogleLogin extends LoginService{
-    login(): void{
-        console.log("Login with Google");
+class ConsoleLogger extends Logger{
+    log(message: string): void {
+        console.log(message);
     }
 }
 
-class FacebookLogin extends LoginService{
-    login(): void {
-        console.log("Login with Facebook");
+class FileLogger extends Logger{
+    log(message: string): void{
+        console.log("Writing to file:", message);
     }
 }
 
-class GithubLogin extends LoginService{
-    login(): void{
-        console.log("Login with Github");
+class UserService{
+    constructor(private logger: Logger){}
+
+    createUser(){
+        this.logger.log("User Created");
     }
 }
 
-function authenticate(service: LoginService){
-    service.login();
-}
+const service1 = new UserService(new ConsoleLogger());
+service1.createUser();
 
-authenticate(new GoogleLogin());
-authenticate(new FacebookLogin());
-authenticate(new GithubLogin());
+const service2 = new UserService(new FileLogger());
+service2.createUser();
